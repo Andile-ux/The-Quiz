@@ -1,31 +1,31 @@
 var quiz = {
     data: [
-      {
-        question: "What is the standard distance between the target and archer in Olympics?",
-        options: ["50 meters", "70 meters", "100 meters", "120 meters"],
-        answer: 1
-      },
-      {
-        question: "Which is the highest number on a standard roulette wheel?",
-        options: ["22", "24", "32", "36"],
-        answer: 3
-      },
-      {
-        question: "How much wood could a woodchuck chuck if a woodchuck would chuck wood?",
-        options: ["150 KG", "200 KG", "350 KG", "420 KG"],
-        answer: 2
-      },
-      {
-        question: "Which is the seventh planet from the sun?",
-        options: ["Uranus", "Earth", "Pluto", "Mars"],
-        answer: 0
-      },
-      {
-        question: "Which is the largest ocean on Earth?",
-        options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-        answer: 3
-      }
-    ],
+        {
+          question: "What is the largest organ in the human body?",
+          options: ["Lungs", "Heart", "Kidneys", "Liver"],
+          answer: 1
+        },
+        {
+          question: "What is the percentage of the earth covered by water?",
+          options: ["51%", "61%", "71%", "81%"],
+          answer: 3
+        },
+        {
+          question: "What is the atomic number of hydrogen?",
+          options: ["2", "4", "1", "3"],
+          answer: 2
+        },
+        {
+          question: "What is the oldest university in the UK?",
+          options: ["Oxford", "Cambridge", "Manchester", "Bath"],
+          answer: 0
+        },
+        {
+          question: "In the Big Bang Theory, what is the name of Sheldon and Leornard's neighbour?",
+          options: ["Lily", "Jessie", "Patty", "Penny"],
+          answer: 3
+        }
+      ],
   
     //creating the elements we use to create divs
     hWrap: null,
