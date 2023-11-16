@@ -22,13 +22,13 @@ var quiz = {
     },
     {
       question:
-        "In the Big Bang Theory, what is the name of Sheldon and Leornard's neighbour?",
+        "In the Big Bang Theory, what is the name of Sheldon and Leonard's neighbor?",
       options: ["Lily", "Jessie", "Patty", "Penny"],
       answer: 3,
     },
   ],
 
-  //creating the elements we use to create divs
+  // Creating the elements we use to create divs
   hWrap: null,
   hUserInput: null,
   hQn: null,
@@ -65,6 +65,11 @@ var quiz = {
       <tbody></tbody>
     `;
     quiz.hWrap.appendChild(userHistoryTable);
+
+    // Create the container for the buttons
+    let viewHistoryBtnContainer = document.createElement("div");
+    viewHistoryBtnContainer.id = "viewHistoryBtn";
+    quiz.hWrap.appendChild(viewHistoryBtnContainer);
   },
 
   start: function () {
@@ -180,12 +185,30 @@ var quiz = {
 
     // Show the user history table
     document.getElementById("userHistoryTable").style.display = "table";
+
+    // Disable the "View History" button
+    let viewHistoryBtn = document.getElementById("viewHistoryBtn").getElementsByTagName("button")[0];
+    viewHistoryBtn.disabled = true;
+
+    // Check if the "Quit" button is already created, if not, create and append it
+    if (!document.getElementById("quitBtn")) {
+      let quitBtnContainer = document.createElement("div");
+      quitBtnContainer.id = "quitBtn";
+      quiz.hWrap.appendChild(quitBtnContainer);
+      let quitBtn = document.createElement("button");
+      quitBtn.innerHTML = "Quit";
+      quitBtn.classList.add("btn", "btn-outline-danger");
+      quitBtn.addEventListener("click", quiz.quit);
+      quitBtnContainer.appendChild(quitBtn);
+    }
   },
 
-  reset: function () {
-    quiz.now = 0;
-    quiz.score = 0;
-    quiz.draw();
+  quit: function () {
+    alert("Thank you");
+    quiz.hUserInput.innerHTML = `
+      <br><input type="text" class="form-control shadow-none" placeholder="Provide your name..." id="username" /><br>
+      <button class="btn btn-outline-primary" onclick="quiz.start()">Start Quiz</button>
+    `;
   },
 };
 
