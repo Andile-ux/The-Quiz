@@ -46,7 +46,7 @@ var quiz = {
 
     // Request for user name
     quiz.hUserInput.innerHTML = `
-      <br><input type="text" class="form-control shadow-none" placeholder="Provide your name..." id="username" /><br>
+      <br><input type="text" class="form-control shadow-none" placeholder="Enter your name..." id="username" /><br>
       <button class="btn btn-outline-primary" onclick="quiz.start()">Start Quiz</button>
     `;
 
@@ -60,6 +60,7 @@ var quiz = {
           <th scope="col">Username</th>
           <th scope="col">Score</th>
           <th scope="col">Total Questions</th>
+          <th scope="col">Emoji</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -142,6 +143,15 @@ var quiz = {
     quiz.hQn.innerHTML = `${quiz.username}, you have answered ${quiz.score} of ${quiz.data.length} questions correctly.`;
     quiz.hAns.innerHTML = "";
 
+    // Check if the score is high or low
+    let isHighScore = quiz.score > quiz.data.length / 2;
+
+    // Determine the emoji based on the score
+    let emoji = isHighScore ? "😊" : "😢";
+
+    // Append the emoji to the result message
+    quiz.hQn.innerHTML += `<br>${emoji}`;
+
     // Retrieve existing user history or create an empty array
     let userHistory = JSON.parse(localStorage.getItem('userHistory')) || [];
 
@@ -177,10 +187,15 @@ var quiz = {
       let cell1 = row.insertCell(0);
       let cell2 = row.insertCell(1);
       let cell3 = row.insertCell(2);
+      let cell4 = row.insertCell(3); // Added for emoji
 
       cell1.innerHTML = userResult.username;
       cell2.innerHTML = userResult.score;
       cell3.innerHTML = userResult.totalQuestions;
+
+      // Determine the emoji based on the score
+      let emoji = userResult.score > userResult.totalQuestions / 2 ? "😊" : "😢";
+      cell4.innerHTML = emoji;
     });
 
     // Show the user history table
@@ -204,11 +219,8 @@ var quiz = {
   },
 
   quit: function () {
-    alert("Thank you");
-    quiz.hUserInput.innerHTML = `
-      <br><input type="text" class="form-control shadow-none" placeholder="Provide your name..." id="username" /><br>
-      <button class="btn btn-outline-primary" onclick="quiz.start()">Start Quiz</button>
-    `;
+    alert("Thank you for taking quiz");
+     location.reload();
   },
 };
 
