@@ -164,4 +164,12 @@
   #userHistoryTable {
     display: none;
   }
+
+  #viewHistoryBtn{
+    margin-bottom: 1rem;
+  }
+
+  #quitBtn{
+    
+  }
   
