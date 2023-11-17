@@ -76,7 +76,7 @@ var quiz = {
   start: function () {
     quiz.username = document.getElementById("username").value;
     if (!quiz.username) {
-      alert("Please enter your name");
+      alert("Please enter your name to start the quiz");
       return;
     }
 
@@ -219,7 +219,7 @@ var quiz = {
   },
 
   quit: function () {
-    alert("Thank you for taking quiz");
+    alert("Thank you for taking the general quiz");
      location.reload();
   },
 };
